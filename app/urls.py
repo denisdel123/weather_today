@@ -21,10 +21,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('weather/', include('weatherApp.urls', namespace='weatherApp'))
+    path('', include('weatherApp.urls', namespace='weatherApp'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIR)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

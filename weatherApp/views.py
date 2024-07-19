@@ -1,8 +1,5 @@
 import os
-
-import requests
 from django.shortcuts import render
-
 from weatherApp.forms import CityForm
 from weatherApp.models import SearchHistory
 from weatherApp.services import get_weather

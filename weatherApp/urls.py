@@ -5,5 +5,5 @@ from weatherApp.apps import WeatherappConfig
 app_name = WeatherappConfig.name
 
 urlpatterns = [
-    path('', main,)
+    path('', main, )
 ]
