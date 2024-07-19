@@ -1,4 +1,14 @@
-FROM ubuntu:latest
-LABEL authors="denisbelenko"
+FROM python:3.11
 
-ENTRYPOINT ["top", "-b"]
+
+RUN pip install --upgrade pip && pip install poetry
+
+ENV POETRY_VERSION=1.1.12
+
+WORKDIR /code
+
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry config virtualenvs.create true && poetry install --no-root --no-interaction
+
+COPY . .
