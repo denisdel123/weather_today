@@ -1,0 +1,23 @@
+{% extends 'weatherApp/base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>Погода сегодня</title>
+</head>
+<body>
+<h1>Погода сегодня</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Подтвердить</button>
+</form>
+{% if weather_set %}
+<h2>Погода в {{weather_set.city}}</h2>
+<p>Температура: {{weather_set.temperature}}°C</p>
+<p>Влажность: {{weather_set.humidity}}</p>
+<p>Давление: {{weather_set.pressure}}</p>
+<p>Скорость ветра: {{weather_set.wind_speed}} м/с</p>
+{% endif %}
+</body>
+</html>
+{% endblock %}
